@@ -9,11 +9,11 @@
   
   <body>
        <div class="heading">
-      <h1 class="is-size-1">My<span class="has-text-primary">Book</span>Shelf  <i class="fas fa-book-open"></i></h1>
+      <h1>My<span>Book</span>List <i class="fas fa-book-open"></i></h1>
   </div>
    <div class="main">
     <button class="show-form">Add Book to List</button>
-     <button class="show-form">Delete All Books</button>
+     <button class="delete-all">Delete All Books</button>
     <div class="formBox hidden">
       <button class="close-form">&times;</button>
       <form action="abc.com" id="bookForm">
@@ -27,21 +27,15 @@
             
             <div class="field">
               <label for="author" class="label">Author</label>
-              <div class="control has-icons-left has-icons-right">
+              <div class="control">
                 <input class="input is-primary" type="text" placeholder="Author"  id="author" name="author">
-                <span class="icon is-small is-left">
-                  <i class="fas fa-user"></i>
-                </span>
               </div>
               </div>
             
             <div class="field">
               <label for="page" class="label">Number of pages</label>
-              <div class="control has-icons-left has-icons-right">
+              <div class="control">
                 <input class="input is-primary" type="number" placeholder="Number of pages"  id="page" name="page" min="1">
-                <span class="icon is-small is-left">
-                  <i class="fa-solid fa-file"></i>
-                </span>
               </div>
               </div>
             
