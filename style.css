@@ -1,37 +1,66 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap');
+
 *{
     padding:0;
     margin:0;
     box-sizing:border-box;
   }
+
+  html{
+    font-size:62.5%;
+  }
   
   body{
     background-color:#B3F2E9;
     height:100vh;
+    font-size: 2rem;
   }
   
   .heading{
-   
+    font-family: 'Cinzel Decorative', cursive;
+    border-bottom:2px solid gray;
+    margin:3rem;
+    padding:2rem;
+    text-align: center;
+    
+  }
+
+ h1, span{
+
+   font-size:5rem;
+  }
+
+  span{
+    color:#669bbc;
+    font-weight: 600;
   }
   
   .main{
-    margin-top:2rem;
-    margin-left:5rem;
+    margin:4rem;
+    font-size: 2rem;
   }
   
   button{
      border-radius:.4rem; 
      padding:.7rem;
      border:none;   
+     box-shadow: 2px 4px #666;
+     text-transform: uppercase;
+     transition:.2s ease-in;
   }
   
   button:active{
     box-shadow: 2px 4px #666;
     transform: translateY(4px);
   }
-  
-  html{
-    font-size:62.5%;
+
+  .delete-all{
+    background-color: #274c77;
+    color:white;
   }
+  
+  
   
   
   .read{
@@ -39,7 +68,7 @@
   }
   
   .notRead{
-    background-color:#7D2932;
+    background-color:#ec4067;
   }
   
   #bookContainer{
@@ -53,7 +82,7 @@
     padding:2rem;
     border-radius:10px;  
     margin:15px;
-    background-color:#02b5ac;
+    background-color:#274c77;
     color:white;
     box-shadow: 3px 3px #999;
   }
@@ -77,34 +106,49 @@
   }
   
   .remove{
-    background-color:#B36C2B;
+    background-color:#f29559;
   }
   
   
   .formBox{
-    
     position:relative;
-    border-radius:10px;
-    width:500px;
-    height:450px;
-    padding:20px;
-    margin:5px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    align-items:space-between;
-    background-color:#02B5AC;
+    border-radius:1rem;
+    width:50rem;
+    height:45rem;
+    padding:2rem;
+    margin-top:5rem;
+    background-color:#aed9e0;
+   
+    
+  } 
+
+  .formBox label{
+    font-size:2rem;
+
+  }
+
+  .formBox input{
+    font-size:1.5rem;
+    padding:.2rem;
   }
   .close-form{
     position:absolute;
-    left:92%;
+    left:88%;
     top:1%;
     width:35px;
     height:30px;
     padding:3px;
-    background-color:#6A6C6E;
+    background-color:#84dcc6;
     border:none;
     border-radius:5px;  
+  }
+
+  .formBox button{
+    font-size:1.5rem;
+    border-radius:.4rem; 
+    padding:1rem;
+    margin-top:2rem;
+    border:none;   
   }
   
   .show-form{
