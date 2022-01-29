@@ -6,6 +6,7 @@ const $author= document.querySelector('#author');
 const $page = document.querySelector('#page');
 const $isRead = document.querySelector('#isRead');
 const formBox = document.querySelector('.formBox');
+const deleteAll = document.querySelector('.delete-all');
 let myLibrary = [];
 
 class Book{
@@ -31,6 +32,7 @@ function addBook(){
   console.log(newBook);
   myLibrary.push(newBook);
   renderBook(newBook);
+  storeBookInLocalStorage(newBook);
 }
 
 //display book
@@ -76,17 +78,23 @@ function clearForm(){
 //addevent listener to bookForm  
 bookForm.addEventListener('submit', function(e){
   e.preventDefault();
+  if($title.value ==='' || $author.value ==='' || $page.value ===''){
+    alert('Please fill in all fields');
+  }
+  else{
   addBook();
   //renderBook();
   clearForm();
+  }
   })
   
 //addEvent listener to bookContainer
 bookContainer.addEventListener('click', function(e){
   if(e.target.classList.contains('remove')){
     console.log('remove');
-    //console.log(e.target.parentElement.parentElement);
+    console.log(e.target.parentElement.children[0].innerText);
     e.target.parentElement.remove();
+    removeBookFromLocalStorage(e.target.parentElement.children[0].innerText);
   }
 
  if(e.target.classList.contains('read')){
@@ -109,6 +117,7 @@ const btnShowForm = document.querySelector('.show-form');
 //show modal function 
 const showForm = function(){
     formBox.classList.remove('hidden');
+
 }
 
 //close modal function
@@ -128,7 +137,7 @@ document.addEventListener('keydown', function(e){
 //////////LOCAL STORAGE////////////
 
 //Store book in local storage
-/* function storeBookInLocalStorage(book) {
+function storeBookInLocalStorage(book) {
   if(localStorage.getItem('myLibrary') === null){
     myLibrary = [];
   } else {
@@ -147,10 +156,12 @@ function getBooks() {
       myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
 
     myLibrary.forEach(function (book) {
-      renderLibrary(book);
+      renderBook(book);
   })
     }  
 }
+
+getBooks();
 
 
 //Remove book from local storage
@@ -158,7 +169,7 @@ function removeBookFromLocalStorage(bookItem) {
   myLibrary = JSON.parse(localStorage.getItem('myLibrary'));
   for (let i = 0; i < myLibrary.length; i++){
     console.log(bookItem.innerText);
-      if (bookItem.innerText===myLibrary) {
+      if (bookItem===`Title: ${myLibrary[i].title}`) {
           myLibrary.splice(i, 1);
       }
       console.log(myLibrary);
@@ -166,4 +177,17 @@ function removeBookFromLocalStorage(bookItem) {
         
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
-getBooks(); */
+
+//Delete all books
+deleteAll.addEventListener('click', function(){
+  alert('Are you sure you want to delete all books in the list?')
+  window.localStorage.clear();
+  bookContainer.innerHTML='';
+})
+
+//Form validation 
+function validateForm(){
+  
+}
+
+getBooks();
