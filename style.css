@@ -1,0 +1,123 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+  }
+  
+  body{
+    background-color:#B3F2E9;
+    height:100vh;
+  }
+  
+  .heading{
+   
+  }
+  
+  .main{
+    margin-top:2rem;
+    margin-left:5rem;
+  }
+  
+  button{
+     border-radius:.4rem; 
+     padding:.7rem;
+     border:none;   
+  }
+  
+  button:active{
+    box-shadow: 2px 4px #666;
+    transform: translateY(4px);
+  }
+  
+  html{
+    font-size:62.5%;
+  }
+  
+  
+  .read{
+    background-color:#28D484;
+  }
+  
+  .notRead{
+    background-color:#7D2932;
+  }
+  
+  #bookContainer{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  
+  .bookBox{
+    font-size:20px;
+    width:300px;
+    padding:2rem;
+    border-radius:10px;  
+    margin:15px;
+    background-color:#02b5ac;
+    color:white;
+    box-shadow: 3px 3px #999;
+  }
+  
+  .bookBox button{
+    margin-right:10px;
+    width:100px;
+    font-size:15px;
+    text-transform:uppercase;
+    border-radius:5px;
+   
+    margin-top:20px;
+    box-shadow: 3px 3px #999;
+  }
+  
+  .bookBox button:active{
+    backdrop-filter: blur(5px);
+    background-color:#a09be7;
+    
+    
+  }
+  
+  .remove{
+    background-color:#B36C2B;
+  }
+  
+  
+  .formBox{
+    
+    position:relative;
+    border-radius:10px;
+    width:500px;
+    height:450px;
+    padding:20px;
+    margin:5px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:space-between;
+    background-color:#02B5AC;
+  }
+  .close-form{
+    position:absolute;
+    left:92%;
+    top:1%;
+    width:35px;
+    height:30px;
+    padding:3px;
+    background-color:#6A6C6E;
+    border:none;
+    border-radius:5px;  
+  }
+  
+  .show-form{
+    text-transform:uppercase;
+    padding:5px;
+    font-size:15px;
+    background-color:#25b6f5;
+    box-shadow: 2px 4px #666;
+  }
+  #bookForm{
+    margin-top:40px;  
+  }
+  
+  .hidden{
+    display:none;
+  }

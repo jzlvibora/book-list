@@ -1,16 +1,15 @@
 const bookContainer = document.querySelector('#bookContainer');
 const bookField=document.querySelector('#bookField');
 const bookForm=document.querySelector('form');
-const $title = document.querySelector('#title')
-const $author= document.querySelector('#author')
-const $page = document.querySelector('#page')
-const $isRead = document.querySelector('#isRead')
+const $title = document.querySelector('#title');
+const $author= document.querySelector('#author');
+const $page = document.querySelector('#page');
+const $isRead = document.querySelector('#isRead');
+const formBox = document.querySelector('.formBox');
 let myLibrary = [];
-let currIndex = -1;
 
 class Book{
   constructor(title, author, page, isRead){
-    this._myLibrary = [];
     this.title=title,
     this.author=author,
     this.page=page,
@@ -18,6 +17,7 @@ class Book{
   }
 }
 
+//add book
 function addBook(){
   if($isRead.checked){
     $isRead.value = 'Read';
@@ -25,71 +25,110 @@ function addBook(){
   else{
     $isRead.value = 'Not Read';
   }
+  
   let newBook = new Book($title.value,$author.value,$page.value,$isRead.value);
+
+  console.log(newBook);
   myLibrary.push(newBook);
-  currIndex++;
-  storeBookInLocalStorage(newBook);
+  renderBook(newBook);
 }
 
-function renderBook(){
- 
-  const bookDisplay = 
-  `<tr>
-    <td>${myLibrary[currIndex].title}</td>
-    <td>${myLibrary[currIndex].author}</td>
-    <td>${myLibrary[currIndex].page}</td>
-    <td><button>${myLibrary[currIndex].isRead}</button></td>
-    <td><button class="remove" >Remove</button></td>
-  </tr>` 
-  const status = document.querySelectorAll('.status');
-
-  if(myLibrary[currIndex].isRead==='Read'){
-  bookField.insertAdjacentHTML('afterend', bookDisplay);
+//display book
+function renderBook(book){
+  
+  const bookBox = document.createElement('div');
+  const titleLn = document.createElement('h2');
+  const authorLn = document.createElement('h2');
+  const pageLn = document.createElement('h2');
+  const statusBtn = document.createElement('button');
+  const removeBtn = document.createElement('button');
+  
+  titleLn.textContent = `Title: ${book.title}`;
+  authorLn.textContent = `Author: ${book.author}`; 
+  pageLn.textContent = `Number of pages: ${book.page}`;
+  
+   if (book.isRead==='Read') {
+   statusBtn.textContent = 'Read';
+   statusBtn.classList.add('read');
+  } else if(book.isRead==='Not Read') {
+   statusBtn.textContent = 'Not read';
+   statusBtn.classList.add('notRead');
+  }
+  
+  removeBtn.textContent = 'Remove';
+  removeBtn.classList.add('remove');
+  bookBox.append(titleLn, authorLn, pageLn, statusBtn, removeBtn);
+  bookBox.classList.add('bookBox');
+  bookContainer.append(bookBox);
   
 }
-}
 
-function renderLibrary(book){
-  const bookDisplay = 
-  `<tr>
-    <td>${book.title}</td>
-    <td>${book.author}</td>
-    <td>${book.page}</td>
-    <td><button>${book.isRead}</button></td>
-    <td><button class="remove">Remove</button></td>
-  </tr>` 
-  bookField.insertAdjacentHTML('afterend', bookDisplay);
-}
 
+//clear form 
 function clearForm(){
   $title.value = '';
   $author.value ='';
   $page.value='';
   $isRead.value='';
-;}
+}
 
+  
+//addevent listener to bookForm  
 bookForm.addEventListener('submit', function(e){
   e.preventDefault();
   addBook();
-  renderBook();
+  //renderBook();
   clearForm();
   })
- 
+  
+//addEvent listener to bookContainer
 bookContainer.addEventListener('click', function(e){
   if(e.target.classList.contains('remove')){
     console.log('remove');
-    console.log(e.target.parentElement.parentElement);
-    e.target.parentElement.parentElement.remove();
-    removeBookFromLocalStorage(e.target.parentElement.parentElement);
+    //console.log(e.target.parentElement.parentElement);
+    e.target.parentElement.remove();
   }
+
+ if(e.target.classList.contains('read')){
+    e.target.classList.remove('read');
+    e.target.classList.add('notRead');
+    e.target.textContent= 'Not Read'  
+    }
+ else if(e.target.classList.contains('notRead')){
+   e.target.classList.remove('notRead');
+   e.target.classList.add('read');
+    e.target.textContent= 'Read'  ;
+    } 
 })
 
+//modal
+
+const btnCloseForm = document.querySelector('.close-form');
+const btnShowForm = document.querySelector('.show-form');
+
+//show modal function 
+const showForm = function(){
+    formBox.classList.remove('hidden');
+}
+
+//close modal function
+const closeForm = function(){
+   formBox.classList.add('hidden');
+}
+
+
+btnShowForm.addEventListener('click', showForm);
+btnCloseForm.addEventListener('click', closeForm);
+document.addEventListener('keydown', function(e){
+ if(e.key === 'Escape' && !modal.classList.contains('hidden')){
+        closeForm();       }  
+});
 
 ////////////////////////////////////
 //////////LOCAL STORAGE////////////
 
 //Store book in local storage
-function storeBookInLocalStorage(book) {
+/* function storeBookInLocalStorage(book) {
   if(localStorage.getItem('myLibrary') === null){
     myLibrary = [];
   } else {
@@ -127,4 +166,4 @@ function removeBookFromLocalStorage(bookItem) {
         
   localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
-getBooks();
+getBooks(); */

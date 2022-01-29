@@ -1,109 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Library</title>
-    <script src="https://kit.fontawesome.com/6fcf0d92db.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    
-</head>
-
-<body>
-    <div class="heading">
-    <h1 class="is-size-1">My<span class="has-text-primary">Book</span>Shelf  <i class="fas fa-book-open"></i></h1>
-</div>
-        <br>
-        <br>
-<div class="columns">
-    <div class="column is-one-third">
-    <div class="card ">
-        <header class="card-header">   
-        <div class="card-content ">
-          <div class="content">
-            <div>
-                <form action="abc.com" id="bookForm">
-                
-         <div class="field">
-            <label for="title" class="label">Title</label>
-            <div class="control">
-              <input class="input is-primary" type="text" placeholder="Title" id="title" name="title">
+<html>
+  <head>
+      <title>Library</title>
+      <script src="https://kit.fontawesome.com/6fcf0d92db.js" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">   
+      <link rel="stylesheet" href="style.css">
+  </head>
+  
+  <body>
+       <div class="heading">
+      <h1 class="is-size-1">My<span class="has-text-primary">Book</span>Shelf  <i class="fas fa-book-open"></i></h1>
+  </div>
+   <div class="main">
+    <button class="show-form">Add Book to List</button>
+     <button class="show-form">Delete All Books</button>
+    <div class="formBox hidden">
+      <button class="close-form">&times;</button>
+      <form action="abc.com" id="bookForm">
+                  
+           <div class="field">
+              <label for="title" class="label">Title</label>
+              <div class="control">
+                <input class="input is-primary" type="text" placeholder="Title" id="title" name="title">
+              </div>
             </div>
-          </div>
-          
-          <div class="field">
-            <label for="author" class="label">Author</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-primary" type="text" placeholder="Author"  id="author" name="author">
-              <span class="icon is-small is-left">
-                <i class="fas fa-user"></i>
-              </span>
+            
+            <div class="field">
+              <label for="author" class="label">Author</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input is-primary" type="text" placeholder="Author"  id="author" name="author">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </div>
+              </div>
+            
+            <div class="field">
+              <label for="page" class="label">Number of pages</label>
+              <div class="control has-icons-left has-icons-right">
+                <input class="input is-primary" type="number" placeholder="Number of pages"  id="page" name="page" min="1">
+                <span class="icon is-small is-left">
+                  <i class="fa-solid fa-file"></i>
+                </span>
+              </div>
+              </div>
+            
+                <div class="field">
+                <label for="isRead" class="checkbox">
+                  <input type="checkbox" id="isRead">
+                  I have read this book.
+                </label>
+              </div>
+            
+            <div class="field is-grouped">
+              <div class="control">
+                <button class="button is-primary">Submit</button>
+              </div>
+              <div class="control">
+                <button class="button is-link is-light">Cancel</button>
+              </div>
             </div>
-            </div>
-          
-          <div class="field">
-            <label for="page" class="label">Number of pages</label>
-            <div class="control has-icons-left has-icons-right">
-              <input class="input is-primary" type="number" placeholder="Number of pages"  id="page" name="page" min="1">
-              <span class="icon is-small is-left">
-                <i class="fa-solid fa-file"></i>
-              </span>
-            </div>
-            </div>
-          
-              <div class="field">
-              <label for="isRead" class="checkbox">
-                <input type="checkbox" id="isRead">
-                I have read this book.
-              </label>
-            </div>
-          
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-primary">Submit</button>
-            </div>
-            <div class="control">
-              <button class="button is-link is-light">Cancel</button>
-            </div>
-          </div>
-                </form>
-                
-            </div>
-          </div>
-        </div>
-    </div>
-      </div>
-      <div class="column">
-        <div id="bookContainer">
-            <div class="table-container ">
-            <table class="table is-fullwidth has-text-centered">
-                <thead>
-                    <tr>
-                        <th colspan="5">My Books</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Title</td>
-                        <td>Author</td>
-                        <td>Number of pages</td>
-                        <td>Status</td>
-                        <td>Delete</td>
-                    </tr>
-                    <tr id="bookField"></tr>
-                   
-                </tbody>
-            </table>
-        </div>
-        </div>
-      </div>
+                  </form>
     </div>
     
-    <script src="script.js"></script>
-</body>
-
-</html>
-
-
+    
+          
+          <div id="bookContainer">
+              
+          
+          </div>
+     </div>
+     <!-- <footer>
+        <p>&copy; Copyright @2022 | Crafted by: jzlvibora</p>
+      </footer> -->
+      
+      <script src="script.js"></script>
+  </body>
+  
+  </html>
