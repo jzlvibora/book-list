@@ -14,6 +14,17 @@
    <div class="main">
     <button class="show-form">Add Book to List</button>
      <button class="delete-all">Delete All Books</button>
+   
+          <div id="bookContainer">
+              
+          
+          </div>
+     </div>
+    
+    <!-- <footer>
+        <p>&copy; Copyright @2022 | Crafted by: jzlvibora</p>
+      </footer> -->
+    
     <div class="formBox hidden">
       <button class="close-form">&times;</button>
       <form action="abc.com" id="bookForm">
@@ -21,21 +32,21 @@
            <div class="field">
               <label for="title" class="label">Title</label>
               <div class="control">
-                <input class="input is-primary" type="text" placeholder="Title" id="title" name="title">
+                <input class="input" type="text" placeholder="Title" id="title" name="title">
               </div>
             </div>
             
             <div class="field">
               <label for="author" class="label">Author</label>
               <div class="control">
-                <input class="input is-primary" type="text" placeholder="Author"  id="author" name="author">
+                <input class="input" type="text" placeholder="Author"  id="author" name="author">
               </div>
               </div>
             
             <div class="field">
               <label for="page" class="label">Number of pages</label>
               <div class="control">
-                <input class="input is-primary" type="number" placeholder="Number of pages"  id="page" name="page" min="1">
+                <input class="input" type="number" placeholder="Number of pages"  id="page" name="page" min="1">
               </div>
               </div>
             
@@ -48,26 +59,17 @@
             
             <div class="field is-grouped">
               <div class="control">
-                <button class="button is-primary">Submit</button>
+                <button class="button is-info submit">Submit</button>
               </div>
               <div class="control">
-                <button class="button is-link is-light">Cancel</button>
+                <button class="button is-link is-light cancel">Cancel</button>
               </div>
             </div>
                   </form>
-    </div>
-    
-    
-          
-          <div id="bookContainer">
-              
-          
-          </div>
-     </div>
-     <!-- <footer>
-        <p>&copy; Copyright @2022 | Crafted by: jzlvibora</p>
-      </footer> -->
-      
+                  </div>
+
+                  <div class="overlay hidden"></div>
+                </div>
       <script src="script.js"></script>
   </body>
   

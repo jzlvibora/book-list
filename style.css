@@ -12,7 +12,7 @@
   }
   
   body{
-    background-color:#B3F2E9;
+    background-color: #4A332D;
     height:100vh;
     font-size: 2rem;
   }
@@ -20,10 +20,11 @@
   .heading{
     font-family: 'Cinzel Decorative', cursive;
     border-bottom:2px solid gray;
-    margin:3rem;
+    
     padding:2rem;
     text-align: center;
     
+    color:white;
   }
 
  h1, span{
@@ -37,15 +38,17 @@
   }
   
   .main{
+   
     margin:4rem;
     font-size: 2rem;
+    
+
   }
   
   button{
      border-radius:.4rem; 
      padding:.7rem;
-     border:none;   
-     box-shadow: 2px 4px #666;
+     
      text-transform: uppercase;
      transition:.2s ease-in;
   }
@@ -55,81 +58,129 @@
     transform: translateY(4px);
   }
 
+  .delete-all, .show-form{
+    box-shadow: none;
+    text-transform:uppercase;
+    padding:10px;
+    font-size:1.5rem;  
+  }
+
   .delete-all{
-    background-color: #274c77;
     color:white;
+    background-color: #6C4A3F;
+    border:2px solid white;
+  }
+
+  
+  .show-form{
+    color:black;
+    color:white;
+    border:2px solid white;
+    background-color:#669bbc;
+    /* box-shadow: 2px 4px #666; */
   }
   
-  
-  
-  
-  .read{
-    background-color:#28D484;
+
+  h2{
+    font-family: 'Cinzel Decorative', cursive;
+    font-size:3rem;
+    color:white;
+    margin-bottom: 1rem;
+    padding:1rem;
+    border-bottom: 2px solid white;
+    text-align:center;
+  }
+  h3{
+    font-size:2rem;
+    padding:.4rem;
   }
   
-  .notRead{
-    background-color:#ec4067;
-  }
+.statusBtn{
+  margin-top:3rem;
+}
   
   #bookContainer{
     display:flex;
     flex-wrap:wrap;
+    justify-content: center;
+    margin-top:7rem;
   }
   
   .bookBox{
+    display:flex;
+    flex-direction:column;
+    color:white;
     font-size:20px;
-    width:300px;
+    line-height: 3rem;
+    width:40rem;
+    height:280px;
     padding:2rem;
     border-radius:10px;  
     margin:15px;
-    background-color:#274c77;
-    color:white;
-    box-shadow: 3px 3px #999;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    transition:1s;
   }
   
   .bookBox button{
-    margin-right:10px;
-    width:100px;
+  
+    width:100%;
     font-size:15px;
     text-transform:uppercase;
     border-radius:5px;
    
-    margin-top:20px;
-    box-shadow: 3px 3px #999;
+   
+    
   }
   
-  .bookBox button:active{
-    backdrop-filter: blur(5px);
-    background-color:#a09be7;
-    
-    
-  }
   
   .remove{
-    background-color:#f29559;
+    background-color: #4A332D;
+    color:white;
   }
   
+
+  .overlay{
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background-color:rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index:5;
+    
+  }
   
   .formBox{
-    position:relative;
+    position:absolute;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
     border-radius:1rem;
+    border:2px solid white;
+    font-size:1.5rem;
     width:50rem;
-    height:45rem;
+    height:40rem;
     padding:2rem;
     margin-top:5rem;
-    background-color:#aed9e0;
-   
+    background-color:#4A332D;
+    color:white;
+  box-shadow: 0 3rem 5rem rgba(0,0,0,0.3);
+  z-index:10;
     
   } 
 
   .formBox label{
-    font-size:2rem;
+    font-size:1.5rem;
+    color:white;
 
   }
 
   .formBox input{
     font-size:1.5rem;
-    padding:.2rem;
+    padding:1rem;
+    margin:.1rem;
+    border:2px solid white;
   }
   .close-form{
     position:absolute;
@@ -138,7 +189,7 @@
     width:35px;
     height:30px;
     padding:3px;
-    background-color:#84dcc6;
+    
     border:none;
     border-radius:5px;  
   }
@@ -148,20 +199,33 @@
     border-radius:.4rem; 
     padding:1rem;
     margin-top:2rem;
-    border:none;   
+    border:2px solid white;
+    background-color: none;
+    
   }
   
-  .show-form{
-    text-transform:uppercase;
-    padding:5px;
-    font-size:15px;
-    background-color:#25b6f5;
-    box-shadow: 2px 4px #666;
-  }
   #bookForm{
     margin-top:40px;  
   }
   
   .hidden{
     display:none;
+    z-index: 0;
+  }
+
+
+  
+  .read{
+    background-color:white;
+  }
+  
+  .notRead{
+    background-color:#D0C7C2;
+  }
+
+  .readBk{
+    background-color: #847187;
+  }
+  .notreadBk{
+    background-color: #d0c7c2b4;
   }
